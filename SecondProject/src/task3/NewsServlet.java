@@ -13,8 +13,8 @@ public class NewsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         News newNews = new News(null,
-                "Rayan find that no mashed potatoes left for him!",
-                "Today Rayan wen to the nearest foodcourt and found out that there was no mashed potatoes left! It was devastating news for him. He walked all the way for nothing!",
+                "Rayan finds that no mashed potatoes were left for him!",
+                "Today Rayan went to the nearest foodcourt and found out that there were no mashed potatoes left! It was devastating news for him. He walked all the way for nothing!",
                 "Asset"
                 );
         if (DBManager.getNewsList().isEmpty()) {

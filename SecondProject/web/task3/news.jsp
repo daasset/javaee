@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -49,11 +50,9 @@
           <a class="nav-link" href="#">Osek News</a>
         </li>
       </ul>
-      <form>
-        <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-dark dark-green">Search</button>
-        </div>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-dark dark-green" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -66,7 +65,7 @@
   <div class="card text-dark bg-light my-3 border-0">
     <class class="card-body">
       <h5 class="card-title"><%=news.getTitle()%></h5>
-      <p class="card-text text-secondary"><%=news.getText()%>></p>
+      <p class="card-text text-secondary"><%=news.getText()%></p>
       <p class="card-text">
         <small class="text-muted">Author: <span class="fw-bold"><%=news.getAuthor()%></span></small>
       </p>

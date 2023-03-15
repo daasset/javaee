@@ -10,45 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02162aca-326f-4f4b-b880-0f95dc149a27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FirstProject/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FirstProject/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SecondProject_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jakarta_servlet_api_6_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SecondProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kz/bithub/javaee/example/AddItemServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kz/bithub/javaee/example/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kz/bithub/javaee/example/HomeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kz/bithub/javaee/example/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task1n2/AddItemServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task1n2/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task1n2/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task1n2/ItemDetailsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task1n2/ShowItemsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task3/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task3/News.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task3/NewsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jakarta.servlet-api-6.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp-api-2.3.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/example/additem.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/example/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/task1n2/add-item.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/task1n2/item-details.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/task1n2/show-items.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/task3/news.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/HomeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/HomeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/TestServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/TestServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/example/AddItemServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/artifacts/FirstProject_Web_exploded/WEB-INF/classes/kz/bitlab/javaee/example/AddItemServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/HomeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/HomeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/TestServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/TestServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/example/AddItemServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/out/production/FirstProject/kz/bitlab/javaee/example/AddItemServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/example/AddItemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstProject/src/kz/bitlab/javaee/example/AddItemServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/task3/NewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/task3/NewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/news.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SecondProject/task3/NewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SecondProject/task3/NewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task3/NewsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task3/NewsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/task3/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/task3/news.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -207,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678873070983</updated>
-      <workItem from="1678873072121" duration="10405000" />
+      <workItem from="1678873072121" duration="12119000" />
     </task>
     <servers />
   </component>

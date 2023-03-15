@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(value = "/")
+@WebServlet(value = "/task0/test")
 public class TestServlet extends HttpServlet {
 
     @Override

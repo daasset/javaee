@@ -10,13 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02162aca-326f-4f4b-b880-0f95dc149a27" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sprint/AddTaskServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sprint/DBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sprint/EditTaskServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sprint/ShowTasksServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sprint/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/sprint/add-task.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/sprint/edit-task.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/sprint/show-tasks.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/task3/NewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/task3/NewsServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/news.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SecondProject/task3/NewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SecondProject/task3/NewsServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/task3/NewsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task3/NewsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/task3/news.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/task3/news.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/asdf.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/test.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/asset/bitlab/JavaEE/SecondProject/web",
+    "last_opened_file_path": "C:/Users/asset/bitlab/JavaEE/SecondProject/web/sprint",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +74,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\asset\bitlab\JavaEE\SecondProject\web\sprint" />
       <recent name="C:\Users\asset\bitlab\JavaEE\SecondProject\web" />
       <recent name="C:\Users\asset\bitlab\JavaEE\SecondProject\src\kz\bithub\javaee" />
       <recent name="C:\Users\asset\bitlab\JavaEE\SecondProject\web\WEB-INF\lib" />
@@ -175,7 +180,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678873070983</updated>
-      <workItem from="1678873072121" duration="12119000" />
+      <workItem from="1678873072121" duration="12151000" />
+      <workItem from="1678939521513" duration="7450000" />
     </task>
     <servers />
   </component>

@@ -21,6 +21,20 @@ public class DBManager {
         }
     }
 
+    public static void removeTask(Long id) {
+        int ind = -1;
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getId().equals(id)) {
+                ind = i;
+                break;
+            }
+        }
+
+        if (ind != -1) {
+            tasks.remove(ind);
+        }
+    }
+
     public static Task findTaskById(Long id) {
         if (id != null) {
             for (Task task : tasks) {

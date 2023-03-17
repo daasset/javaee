@@ -51,29 +51,35 @@
                 <input type="number" class="form-control" id="task-id" name="task-id" value="<%=task.getId()%>">
             </div>
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             <label for="task-name" class="form-label">Наименование:</label>
             <input type="text" class="form-control" id="task-name" name="task-name" value="<%=task.getName()%>">
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             <label for="task-description" class="form-label">Описание:</label>
             <textarea class="form-control" id="task-description" name="task-description" rows="10"><%=task.getDescription()%></textarea>
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             <label for="task-duedate" class="form-label">Крайний срок:</label>
             <input type="date" class="form-control" id="task-duedate" name="task-duedate" value="<%=format.format(task.getDueDate())%>">
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             <label for="task-isdone" class="form-label">Выполнено:</label>
             <select class="form-control" id="task-isdone" name="task-isdone">
                 <option value="true" selected="<%=task.isDone()? "selected" : ""%>">Да</option>
                 <option value="false" selected="<%=task.isDone()? "" : "selected"%>">Нет</option>
             </select>
         </div>
-        <div class="mb-3 text-end">
-            <button class="btn btn-dark bg-success border-0">Сохранить</button>
+        <div class="form-group mb-3 text-end">
+            <button class="btn btn-dark bg-success border-0"
+                    onclick="if (!confirm('Сохранить изменения?')) return false;">Сохранить</button>
+            <a href="#" class="btn btn-dark bg-danger border-0"
+               onclick="if (confirm('Вы действительно хотите удалить данную задачу?')) document.getElementById('removeForm').submit();">Удалить</a>
             <a href="/sprint/show-tasks" class="btn btn-dark bg-secondary border-0">Отменить</a>
         </div>
+    </form>
+    <form action="/sprint/remove-task" method="post" class="invisible" id="removeForm">
+        <input type="number" class="form-control" name="task-id" value="<%=task.getId()%>">
     </form>
     <%
         }

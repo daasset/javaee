@@ -10,17 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02162aca-326f-4f4b-b880-0f95dc149a27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sprint/AddTaskServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprint/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprint/EditTaskServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprint/ShowTasksServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprint/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/sprint/add-task.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/sprint/edit-task.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/sprint/show-tasks.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sprint/RemoveTaskServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/asdf.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/task3/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/sprint/DBManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/WEB-INF/classes/sprint/DBManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/sprint/edit-task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SecondProject_Web_exploded/sprint/edit-task.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SecondProject/sprint/DBManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SecondProject/sprint/DBManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprint/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprint/DBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sprint/edit-task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/sprint/edit-task.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678873070983</updated>
       <workItem from="1678873072121" duration="12151000" />
-      <workItem from="1678939521513" duration="7450000" />
+      <workItem from="1678939521513" duration="9821000" />
     </task>
     <servers />
   </component>

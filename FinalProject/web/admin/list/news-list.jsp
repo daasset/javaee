@@ -64,7 +64,7 @@
             </th>
             <td class="align-middle"><%=news.getPostedTime()%>
             </td>
-            <td class="align-middle"><%=news.getCategoryId()%>
+            <td class="align-middle"><%=news.getCategory().getName()%>
             </td>
             <td class="align-middle"><%=news.getTitle()%>
             </td>

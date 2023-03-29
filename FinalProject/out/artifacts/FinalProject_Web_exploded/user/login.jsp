@@ -77,7 +77,6 @@
             </div>
         </div>
 
-
         <div class="mb-3 text-end">
             <button class="btn bg-success text-white">LOGIN</button>
         </div>

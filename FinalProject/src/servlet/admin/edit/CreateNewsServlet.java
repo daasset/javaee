@@ -2,6 +2,7 @@ package servlet.admin.edit;
 
 import dao.CategoryDAO;
 import dao.NewsDAO;
+import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,10 +14,6 @@ import model.User;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet(value = "/admin/create/news")
 public class CreateNewsServlet extends HttpServlet {
@@ -44,8 +41,8 @@ public class CreateNewsServlet extends HttpServlet {
 
             News news = new News(
                     null,
-                    curUser.getId(),
-                    category == null? null : category.getId(),
+                    UserDAO.findById(curUser.getId()),
+                    category == null? null : CategoryDAO.findById(category.getId()),
                     LocalDateTime.now(),
                     title,
                     content);

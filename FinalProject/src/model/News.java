@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class News {
     private Long id;
-    private Long userId;
-    private Long categoryId;
+    private User user;
+    private Category category;
     private LocalDateTime postedTime;
     private String title;
     private String content;
@@ -13,10 +13,10 @@ public class News {
     public News() {
     }
 
-    public News(Long id, Long userId, Long categoryId, LocalDateTime postedTime, String title, String content) {
+    public News(Long id, User user, Category category, LocalDateTime postedTime, String title, String content) {
         this.id = id;
-        this.userId = userId;
-        this.categoryId = categoryId;
+        this.user = user;
+        this.category = category;
         this.postedTime = postedTime;
         this.title = title;
         this.content = content;
@@ -30,20 +30,20 @@ public class News {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public LocalDateTime getPostedTime() {

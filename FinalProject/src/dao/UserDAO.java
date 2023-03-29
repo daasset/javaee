@@ -2,6 +2,7 @@ package dao;
 
 import model.User;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,9 +25,10 @@ public class UserDAO {
         }
 
         int row = 0;
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "insert into users (email, password, name, surname, role) values (?, ?, ?, ?, ?)"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "insert into users (email, password, name, surname, role) values (?, ?, ?, ?, ?)"
+             )) {
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getPassword());
             stmt.setString(3, user.getName());
@@ -52,9 +54,10 @@ public class UserDAO {
         }
 
         int row = 0;
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "update users set name = ?, surname = ? where id = ?"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "update users set name = ?, surname = ? where id = ?"
+             )) {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getSurname());
             stmt.setLong(3, user.getId());
@@ -71,9 +74,10 @@ public class UserDAO {
             return null;
         }
         User user = null;
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "select * from users where id = ?"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from users where id = ?"
+             )) {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -97,9 +101,10 @@ public class UserDAO {
             return null;
         }
         User user = null;
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "select * from users where email = ?"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from users where email = ?"
+             )) {
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -121,9 +126,10 @@ public class UserDAO {
     public static List<User> findAll() {
         List<User> users = new ArrayList<>();
 
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-            "select * from users order by id"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from users order by id"
+             )) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 User user = new User(

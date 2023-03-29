@@ -4,18 +4,18 @@ import java.time.LocalDateTime;
 
 public class Comment {
     private Long id;
-    private Long userId;
-    private Long newsId;
+    private User user;
+    private News news;
     private LocalDateTime postedTime;
     private String text;
 
     public Comment() {
     }
 
-    public Comment(Long id, Long userId, Long newsId, LocalDateTime postedTime, String text) {
+    public Comment(Long id, User user, News news, LocalDateTime postedTime, String text) {
         this.id = id;
-        this.userId = userId;
-        this.newsId = newsId;
+        this.user = user;
+        this.news = news;
         this.postedTime = postedTime;
         this.text = text;
     }
@@ -28,20 +28,20 @@ public class Comment {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getNewsId() {
-        return newsId;
+    public News getNews() {
+        return news;
     }
 
-    public void setNewsId(Long newsId) {
-        this.newsId = newsId;
+    public void setNews(News news) {
+        this.news = news;
     }
 
     public LocalDateTime getPostedTime() {

@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.User" %>
 <%@ page import="model.News" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -59,24 +60,21 @@
 
 <div class="container mt-5">
     <%
-        if (currentUser != null) {
-            List<News> newsList = (List<News>) request.getAttribute("newsList");
-            for (News news : newsList) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        List<News> newsList = (List<News>) request.getAttribute("newsList");
+        for (News news : newsList) {
     %>
     <div class="card border-0 mb-5">
         <div class="card-body">
-            <h4 class="card-title"><%=news.getTitle()%></h4>
+            <h4 class="card-title">
+                <a class="link-dark" href="/news?id=<%=news.getId()%>"><%=news.getTitle()%></a>
+            </h4>
             <p class="card-text"><%=news.getContent()%></p>
-        </div>
-        <div class="card-body fw-bold">
-            Posted at <%=news.getPostedTime()%>
+            <p class="card-text fw-bold text-secondary">
+                Posted at <%=formatter.format(news.getPostedTime())%> by <%=news.getUser().getName()%> <%=news.getUser().getSurname()%>
+            </p>
         </div>
     </div>
-    <%
-            }
-        } else {
-    %>
-    <h1 class="text-center">You need to login inorder to see the news!</h1>
     <%
         }
     %>

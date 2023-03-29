@@ -1,4 +1,4 @@
-package servlet;
+package servlet.user;
 
 import dao.NewsDAO;
 import jakarta.servlet.ServletException;
@@ -11,13 +11,10 @@ import model.User;
 import java.io.IOException;
 
 @WebServlet(value = "/")
-public class NewsServlet extends HttpServlet {
+public class NewsListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User curUser = (User)req.getSession().getAttribute("currentUser");
-        if (curUser != null) {
-            req.setAttribute("newsList", NewsDAO.findAll());
-        }
-        req.getRequestDispatcher("/news.jsp").forward(req, resp);
+        req.setAttribute("newsList", NewsDAO.findAll());
+        req.getRequestDispatcher("/user/news-list.jsp").forward(req, resp);
     }
 }

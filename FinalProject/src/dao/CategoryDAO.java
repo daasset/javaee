@@ -1,8 +1,8 @@
 package dao;
 
 import model.Category;
-import model.User;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,9 +22,10 @@ public class CategoryDAO {
         }
 
         int row = 0;
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "insert into category (name) values (?)"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "insert into category (name) values (?)"
+             )) {
             stmt.setString(1, category.getName());
             row = stmt.executeUpdate();
         } catch (SQLException e) {
@@ -40,9 +41,10 @@ public class CategoryDAO {
         }
         Category category = null;
 
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "select * from category where id = ?"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from category where id = ?"
+             )) {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -64,9 +66,10 @@ public class CategoryDAO {
 
         Category category = null;
 
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "select * from category where name = ?"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from category where name = ?"
+             )) {
             stmt.setString(1, name);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -83,9 +86,10 @@ public class CategoryDAO {
     public static List<Category> findAll() {
         List<Category> categories = new ArrayList<>();
 
-        try (PreparedStatement stmt = Application.INSTANCE.dataSource().getConnection().prepareStatement(
-                "select * from category order by id"
-        )) {
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select * from category order by id"
+             )) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Category category = new Category(

@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String responseStr = "/login?error";
+        String responseStr = "/";
 
         User curUser = (User)req.getSession().getAttribute("currentUser");
         if (curUser == null) {
@@ -39,8 +39,6 @@ public class LoginServlet extends HttpServlet {
             } else {
                 responseStr = "/login?error=1";
             }
-        } else {
-            responseStr = "/";
         }
 
         resp.sendRedirect(responseStr);

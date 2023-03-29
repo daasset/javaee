@@ -1,5 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.User" %>
+<%@ page import="model.News" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="model.Comment" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">All news</a>
+                    <a class="nav-link active" href="/">All news</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -28,7 +31,7 @@
                     if (currentUser == null) {
                 %>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/login">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/registration">Register</a>
@@ -57,30 +60,55 @@
 </nav>
 
 <div class="container mt-5">
-    <form action="/login" method="post" class="w-50 mx-auto">
-        <h5 class="mb-5 text-center">LOGIN IN ORDER TO SEE MORE</h5>
-        <!-- EMAIL -->
-        <div class="mb-3 row ">
-            <label for="user-email" class="col-sm-3 col-form-label">EMAIL:</label>
-            <div class="col-sm-9">
-                <input type="email" class="form-control" id="user-email" name="user-email"
-                       placeholder="Enter your email">
+    <%
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        News news = (News) request.getAttribute("news");
+    %>
+    <div class="card border-0 mb-5">
+        <div class="card-body">
+            <h4 class="card-title"><%=news.getTitle()%></h4>
+            <p class="card-text"><%=news.getContent()%></p>
+            <p class="card-text fw-bold">
+                Posted at <%=formatter.format(news.getPostedTime())%> by <%=news.getUser().getName()%> <%=news.getUser().getSurname()%>
+            </p>
+        </div>
+    </div>
+    <div class="ms-5">
+        <%
+            if (currentUser != null) {
+        %>
+        <form action="/news?id=<%=news.getId()%>" method="post" class="ms-3" >
+            <div class="mb-3">
+                <label for="comment-text" class="form-label">Write your comment below</label>
+                <textarea rows="4" class="form-control" id="comment-text" name="comment-text"></textarea>
+            </div>
+            <div class="mb-3 text-end">
+                <button class="btn bg-success text-white">POST</button>
+            </div>
+        </form>
+        <%
+            }
+            List<Comment> comments = (List<Comment>) request.getAttribute("comments");
+            for (Comment comment : comments) {
+        %>
+        <div class="card border-0 mt-3">
+            <div class="card-body">
+                <p class="card-title fw-bold">
+                    Posted by
+                    <span class="text-secondary">
+                        <%=comment.getUser().getName()%> <%=comment.getUser().getSurname()%>
+                        at <%=formatter.format(comment.getPostedTime())%>
+                    </span>
+                </p>
+                <p class="card-text"><%=comment.getText()%></p>
             </div>
         </div>
+        <%
+            }
 
-        <!-- PASSWORD -->
-        <div class="mb-3 row ">
-            <label for="user-password" class="col-sm-3 col-form-label">PASSWORD:</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="user-password" name="user-password"
-                       placeholder="Enter your password">
-            </div>
-        </div>
+        %>
 
-        <div class="mb-3 text-end">
-            <button class="btn bg-success text-white">LOGIN</button>
-        </div>
-    </form>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"

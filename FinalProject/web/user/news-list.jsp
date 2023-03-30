@@ -2,6 +2,7 @@
 <%@ page import="model.User" %>
 <%@ page import="model.News" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="model.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,6 +13,8 @@
 <body>
 <%
     User currentUser = (User) session.getAttribute("currentUser");
+    Category currentCategory = (Category) request.getAttribute("currentCategory");
+    List<Category> categories = (List<Category>) request.getAttribute("categories");
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -22,8 +25,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">All news</a>
+                    <a class="nav-link <%=(currentCategory == null)? "active" : ""%>" href="/">All news</a>
                 </li>
+                <%
+                    for (Category category : categories) {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link <%=category.equals(currentCategory)? "active" : ""%>" href="/?catId=<%=category.getId()%>">
+                        <%=category.getName()%>
+                    </a>
+                </li>
+                <%
+                    }
+                %>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <%
@@ -59,6 +73,19 @@
 </nav>
 
 <div class="container mt-5">
+    <!-- ALERTS -->
+        <%
+        String error = (String)request.getAttribute("error");
+        String success = (String)request.getAttribute("success");
+    %>
+    <div>
+    <div class="<%=(success == null)? "invisible" : "alert alert-success ms-3"%>" role="alert">
+        <%=success%>
+    </div>
+    <div class="<%=(error == null)? "invisible" : "alert alert-danger ms-3"%>" role="alert">
+        <%=error%>
+    </div>
+
     <%
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         List<News> newsList = (List<News>) request.getAttribute("newsList");

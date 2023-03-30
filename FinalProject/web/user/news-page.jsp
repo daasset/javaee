@@ -3,6 +3,7 @@
 <%@ page import="model.News" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="model.Comment" %>
+<%@ page import="model.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,9 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body>
 <%
     User currentUser = (User) session.getAttribute("currentUser");
+    Category currentCategory = (Category) request.getAttribute("currentCategory");
+    List<Category> categories = (List<Category>) request.getAttribute("categories");
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -23,11 +25,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">All news</a>
+                    <a class="nav-link <%=(currentCategory == null)? "active" : ""%>" href="/">All news</a>
                 </li>
+                <%
+                    for (Category category : categories) {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link <%=category.equals(currentCategory)? "active" : ""%>" href="/?catId=<%=category.getId()%>">
+                        <%=category.getName()%>
+                    </a>
+                </li>
+                <%
+                    }
+                %>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <%
+                    <%
                     if (currentUser == null) {
                 %>
                 <li class="nav-item">
@@ -36,14 +49,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/registration">Register</a>
                 </li>
-                <%
+                    <%
                     } else {
                         if (currentUser.getRole() == User.Role.ADMIN) {
                 %>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/list/news">Admin panel</a>
                 </li>
-                <%
+                    <%
                         }
                 %>
                 <li class="nav-item">
@@ -52,7 +65,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
-                <%
+                    <%
                     }
                 %>
         </div>
@@ -74,6 +87,19 @@
         </div>
     </div>
     <div class="ms-5">
+        <!-- ALERTS -->
+        <%
+            String error = (String)request.getAttribute("error");
+            String success = (String)request.getAttribute("success");
+        %>
+        <div>
+        <div class="<%=(success == null)? "invisible" : "alert alert-success ms-3"%>" role="alert">
+            <%=success%>
+        </div>
+        <div class="<%=(error == null)? "invisible" : "alert alert-danger ms-3"%>" role="alert">
+            <%=error%>
+        </div>
+
         <%
             if (currentUser != null) {
         %>

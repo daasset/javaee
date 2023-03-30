@@ -56,11 +56,12 @@ public class UserDAO {
         int row = 0;
         try (Connection connection = Application.INSTANCE.dataSource().getConnection();
              PreparedStatement stmt = connection.prepareStatement(
-                     "update users set name = ?, surname = ? where id = ?"
+                     "update users set name = ?, surname = ?, password = ? where id = ?"
              )) {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getSurname());
-            stmt.setLong(3, user.getId());
+            stmt.setString(3, user.getPassword());
+            stmt.setLong(4, user.getId());
             row = stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

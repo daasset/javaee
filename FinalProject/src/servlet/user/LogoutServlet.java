@@ -13,10 +13,17 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String redirectStr = null;
+        String nowAllowedUrl = "/";
+        String successUrl = "/?success=";
+
         User currentUser = (User)req.getSession().getAttribute("currentUser");
         if (currentUser != null) {
             req.getSession().setAttribute("currentUser", null);
+            redirectStr = successUrl + "you_have_successfully_logged_out";
+        } else {
+            redirectStr = nowAllowedUrl;
         }
-        resp.sendRedirect("/");
+        resp.sendRedirect(redirectStr);
     }
 }

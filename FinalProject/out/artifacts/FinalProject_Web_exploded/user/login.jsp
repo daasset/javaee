@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.User" %>
+<%@ page import="model.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,6 +11,8 @@
 <body>
 <%
     User currentUser = (User) session.getAttribute("currentUser");
+    Category currentCategory = (Category) request.getAttribute("currentCategory");
+    List<Category> categories = (List<Category>) request.getAttribute("categories");
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -22,6 +25,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">All news</a>
                 </li>
+                <%
+                    for (Category category : categories) {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link <%=category.equals(currentCategory)? "active" : ""%>" href="/?catId=<%=category.getId()%>">
+                        <%=category.getName()%>
+                    </a>
+                </li>
+                <%
+                    }
+                %>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <%
@@ -59,6 +73,19 @@
 <div class="container mt-5">
     <form action="/login" method="post" class="w-50 mx-auto">
         <h5 class="mb-5 text-center">LOGIN IN ORDER TO SEE MORE</h5>
+        <!-- ALERTS -->
+        <%
+            String error = (String)request.getAttribute("error");
+            String success = (String)request.getAttribute("success");
+        %>
+        <div>
+        <div class="<%=(success == null)? "invisible" : "alert alert-success"%>" role="alert">
+            <%=success%>
+        </div>
+        <div class="<%=(error == null)? "invisible" : "alert alert-danger"%>" role="alert">
+            <%=error%>
+        </div>
+
         <!-- EMAIL -->
         <div class="mb-3 row ">
             <label for="user-email" class="col-sm-3 col-form-label">EMAIL:</label>

@@ -65,14 +65,56 @@ public class NewsDAO {
         return news;
     }
 
+    public static List<News> findAllByCategory(Category category) {
+        if (category == null) {
+            return findAll();
+        }
+
+        List<News> newsList = new ArrayList<>();
+
+        try (Connection connection = Application.INSTANCE.dataSource().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                     "select news.id as n_id, news.posted_time as n_posted_time, news.title as n_title, news.content as n_content, " +
+                                "users.id as u_id, users.email as u_email, users.password as u_password, users.name as u_name, users.surname as u_surname, users.role as u_role " +
+                         "from news, users " +
+                         "where news.user_id = users.id and news.category_id = ? " +
+                         "order by news.posted_time desc"
+             )) {
+            stmt.setLong(1, category.getId());
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                User user = new User(
+                        rs.getLong("u_id"),
+                        rs.getString("u_email"),
+                        rs.getString("u_password"),
+                        rs.getString("u_name"),
+                        rs.getString("u_surname"),
+                        User.Role.valueOf(rs.getString("u_role"))
+                );
+                News news = new News(
+                        rs.getLong("n_id"),
+                        user,
+                        category,
+                        rs.getTimestamp("n_posted_time").toLocalDateTime(),
+                        rs.getString("n_title"),
+                        rs.getString("n_content"));
+                newsList.add(news);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return newsList;
+    }
+
     public static List<News> findAll() {
         List<News> newsList = new ArrayList<>();
 
         try (Connection connection = Application.INSTANCE.dataSource().getConnection();
              PreparedStatement stmt = connection.prepareStatement(
                      "select news.id as n_id, news.posted_time as n_posted_time, news.title as n_title, news.content as n_content, " +
-                             "users.id as u_id, users.email as u_email, users.password as u_password, users.name as u_name, users.surname as u_surname, users.role as u_role, " +
-                             "category.id as c_id, category.name as c_name " +
+                                "users.id as u_id, users.email as u_email, users.password as u_password, users.name as u_name, users.surname as u_surname, users.role as u_role, " +
+                                "category.id as c_id, category.name as c_name " +
                          "from news, users, category " +
                          "where news.user_id = users.id and news.category_id = category.id " +
                          "order by news.posted_time desc"

@@ -15,7 +15,7 @@ public class CommentDAO {
                 || comment.getUser() == null
                 || comment.getNews() == null
                 || comment.getPostedTime() == null
-                || comment.getText() == null || comment.getText().isEmpty()) {
+                || comment.getText() == null || comment.getText().isEmpty() || comment.getText().length() > 1000) {
             return false;
         }
 
@@ -37,9 +37,9 @@ public class CommentDAO {
         return row > 0;
     }
 
-    public static List<Comment> findAllByNewsId(Long newsId) {
+    public static List<Comment> findAllByNews(News news) {
         List<Comment> comments = new ArrayList<>();
-        if (newsId == null) {
+        if (news == null || news.getId() == null) {
             return comments;
         }
 
@@ -48,9 +48,8 @@ public class CommentDAO {
                      "select c.id, c.user_id, c.posted_time, c.text, u.email, u.password, u.name, u.surname, u.role " +
                              "from comment as c, users as u where c.user_id = u.id and news_id = ? order by c.posted_time desc"
              )) {
-            News news = NewsDAO.findById(newsId);
 
-            stmt.setLong(1, newsId);
+            stmt.setLong(1, news.getId());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 User user = new User(

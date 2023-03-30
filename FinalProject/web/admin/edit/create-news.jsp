@@ -12,7 +12,7 @@
 <%
     User currentUser = (User) session.getAttribute("currentUser");
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">BITHUB NEWS PORTAL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">

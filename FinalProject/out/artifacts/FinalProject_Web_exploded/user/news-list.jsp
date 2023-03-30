@@ -79,10 +79,10 @@
         String success = (String)request.getAttribute("success");
     %>
     <div>
-    <div class="<%=(success == null)? "invisible" : "alert alert-success ms-3"%>" role="alert">
+    <div class="<%=(success == null)? "invisible" : "alert alert-success mx-3"%>" role="alert">
         <%=success%>
     </div>
-    <div class="<%=(error == null)? "invisible" : "alert alert-danger ms-3"%>" role="alert">
+    <div class="<%=(error == null)? "invisible" : "alert alert-danger mx-3"%>" role="alert">
         <%=error%>
     </div>
 

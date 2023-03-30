@@ -93,17 +93,17 @@
             String success = (String)request.getAttribute("success");
         %>
         <div>
-        <div class="<%=(success == null)? "invisible" : "alert alert-success ms-3"%>" role="alert">
+        <div class="<%=(success == null)? "invisible" : "alert alert-success mx-3"%>" role="alert">
             <%=success%>
         </div>
-        <div class="<%=(error == null)? "invisible" : "alert alert-danger ms-3"%>" role="alert">
+        <div class="<%=(error == null)? "invisible" : "alert alert-danger mx-3"%>" role="alert">
             <%=error%>
         </div>
 
         <%
             if (currentUser != null) {
         %>
-        <form action="/news?id=<%=news.getId()%>" method="post" class="ms-3" >
+        <form action="/news?id=<%=news.getId()%>" method="post" class="mx-3" >
             <div class="mb-3">
                 <label for="comment-text" class="form-label">Write your comment below</label>
                 <textarea rows="4" class="form-control" id="comment-text" name="comment-text"></textarea>
